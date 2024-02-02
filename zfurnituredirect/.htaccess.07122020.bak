@@ -1,0 +1,23 @@
+<Files 403.shtml>
+order allow,deny
+allow from all
+</Files>
+
+# Deny access to xmlrpc.php file
+<files xmlrpc.php>
+order allow,deny
+deny from all
+</files>
+
+deny from 174.128.55.71
+deny from 178.22.232.53
+deny from 185.38.14.171
+deny from 185.38.
+deny from 185.
+deny from 92.185.207.95
+
+# BLOCK USER AGENTS
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} Chrome\/43\.0\.2357\.130 [NC,OR]
+RewriteCond %{HTTP_USER_AGENT} Chrome\/\s*([321]\d{1,4}|\d)\.\d{1,4}\.\d{1,4}\.\d{1,4} [NC]
+RewriteRule !^robots\.txt$ - [F]

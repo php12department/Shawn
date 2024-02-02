@@ -1,0 +1,110 @@
+#RewriteOptions inherit
+# For security reasons, Option followsymlinks cannot be overridden.
+#Options +FollowSymLinks
+#Options +SymLinksIfOwnerMatch
+RewriteEngine on
+
+#RewriteCond %{HTTPS} !=on
+#RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+RewriteRule ^404/?$ 404.php [NC,L]
+
+RewriteRule ^apanel/?$ apanel/index.php [NC,L]
+
+RewriteRule ^index/?$ index.php [NC,L]
+
+RewriteRule ^login/?$ login.php [NC,L]
+RewriteRule ^logout/?$ logout.php [NC,L]
+RewriteRule ^process-login/?$ process_login.php [NC,L]
+
+RewriteRule ^activate-account/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ activate_account.php?uid=$1&code=$2 [NC,L]
+
+RewriteRule ^signup/?$ signup.php [NC,L]
+RewriteRule ^process-signup/?$ process_signup.php [NC,L]
+
+RewriteRule ^forgetpassword/?$ forgetpassword.php [NC,L]
+RewriteRule ^process-forget-password/?$ process_forget_password.php [NC,L]
+
+RewriteRule ^set-new-password/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ setnewpassword.php?id=$1&slug=$2 [NC,L]
+RewriteRule ^process-set-new-password/?$ process_set_new_password.php [NC,L]
+
+RewriteRule ^search/?$ search_product.php  [L,QSA]
+
+RewriteRule ^product-category/([A-Za-z0-9-_]+)/?$ product_category_listing.php?cate_slug=$1 [NC,L]
+RewriteRule ^products/([A-Za-z0-9-_]+)/?$ productlist_categorywise.php?cate_slug=$1 [NC,L]
+RewriteRule ^products/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ productlist_categorywise.php?cate_slug=$1&sub_cate_slug=$2 [NC,L]
+RewriteRule ^products/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ productlist_categorywise.php?cate_slug=$1&sub_cate_slug=$2&sub_sub_cate_slug=$3 [NC,L]
+
+RewriteRule ^product/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ product_details.php?cate_slug=$1&pro_slug=$2 [NC,L]
+RewriteRule ^product/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ product_details.php?cate_slug=$1&sub_cate_slug=$2&pro_slug=$3 [NC,L]
+RewriteRule ^product/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/([A-Za-z0-9-_]+)/?$ product_details.php?cate_slug=$1&sub_cate_slug=$2&sub_sub_cate_slug=$3&pro_slug=$4 [NC,L]
+
+RewriteRule ^process-add-to-cart/?$ process_add_to_cart.php [NC,L]
+RewriteRule ^shopping-cart/?$ shopping_cart.php [NC,L]
+RewriteRule ^checkout/?$ checkout.php [NC,L]
+RewriteRule ^checkout-process/?$ checkout-process.php [NC,L]
+
+RewriteRule ^paypal-checkout/?$ paypal-checkout.php [NC,L]
+RewriteRule ^notify/?$ notify.php [NC,L]
+
+RewriteRule ^my-account/?$ my_account.php [NC,L]
+RewriteRule ^process-my-account/?$ process_my_account.php [NC,L]
+
+RewriteRule ^change-password/?$ change_password.php [NC,L]
+RewriteRule ^process-change-password/?$ process_change_password.php [NC,L]
+
+RewriteRule ^wishlist/?$ wishlist.php [NC,L]
+RewriteRule ^orders/?$ my_orders.php [NC,L]
+RewriteRule ^order-details/([A-Za-z0-9-_]+)/?$ my_order_details.php?cart_id=$1 [NC,L]
+
+RewriteRule ^enquiry/?$ process_product_enquiry.php [NC,L]
+
+RewriteRule ^contact-us/?$ contact_us.php [NC,L]
+RewriteRule ^process-contact-us/?$ process_contact_us.php [NC,L]
+RewriteRule ^about-us/?$ about_us.php [NC,L]
+RewriteRule ^careers/?$ careers.php [NC,L]
+RewriteRule ^news-and-events/?$ news_and_events.php [NC,L]
+RewriteRule ^news-and-events/category/([A-Za-z0-9-_]+)/?$ news_and_events.php?cate_slug=$1 [NC,L]
+RewriteRule ^news-and-events/search/(.*)?$ news_and_events.php?search_keyword=$1 [NC,L]
+RewriteRule ^news-and-events/details/([A-Za-z0-9-_]+)/?$ news_and_events_details.php?id=$1 [NC,L]
+
+RewriteRule ^faqs/?$ faqs.php [NC,L]
+RewriteRule ^store-locations/?$ store_locations.php [NC,L]
+RewriteRule ^store-details/?$ store_details.php [NC,L]
+
+RewriteRule ^upload-photos/?$ add_submission.php [NC,L]
+RewriteRule ^process-addsubmission/?$ process_addsubmission.php [NC,L]
+RewriteRule ^thankyou/?$ thankyou.php [NC,L]
+RewriteRule ^pay-thankyou/?$ paypal_thankyou.php [NC,L]
+
+RewriteRule ^customer-gallary/?$ customer_gallary.php [NC,L]
+RewriteRule ^([A-Za-z0-9-_]+)/?$ static_page.php?page_slug=$1 [NC,L]
+#RewriteRule ^custom-orders/?$ custom_orders.php [NC,L]
+#RewriteRule ^shipping-information/?$ shipping_information.php [NC,L]
+#RewriteRule ^financing/?$ financing.php [NC,L]
+#RewriteRule ^accidental-damage-protection/?$ accidental_damage_protection.php [NC,L]
+#RewriteRule ^returns-and-exchanges/?$ returns_and_exchanges.php [NC,L]
+#RewriteRule ^privacy-policy/?$ privacy_policy.php [NC,L]
+#RewriteRule ^furniture-care/?$ furniture_care.php [NC,L]
+
+
+
+
+RewriteRule ^store-locations/?$ store_locations.php [NC,L]
+
+RewriteRule ^brand-product/([A-Za-z0-9-_]+)/?$ productlist_featured_brandwise.php?brand_slug=$1 [NC,L]
+RewriteRule ^brand/?$ brand.php [NC,L]
+
+RewriteRule ^store-details/?$ store_details.php [NC,L]
+
+# php -- BEGIN cPanel-generated handler, do not edit
+# This domain inherits the “PHP” package.
+# php -- END cPanel-generated handler, do not edit
+
+
+RewriteRule ^sitemap\.xml/?$ sitemap.php
+
+
+
+
+
